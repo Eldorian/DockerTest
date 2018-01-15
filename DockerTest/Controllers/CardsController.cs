@@ -23,7 +23,7 @@ namespace DockerTest.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add(CardModel card)
+        public IActionResult Add(CardsModel card)
         {
             return Ok();
         }

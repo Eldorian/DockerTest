@@ -5,6 +5,6 @@ namespace DockerTest.Repository
 {
     public interface ICardRepository
     {
-        IEnumerable<CardModel> GetAll();
+        IEnumerable<CardsModel> GetAll();
     }
 }
