@@ -6,3 +6,13 @@ services:
     build:
       context: .
       dockerfile: DockerTest/Dockerfile
+
+  sql.data:
+    image: microsoft/mssql-server-linux
+    container_name: hscarddb
+    environment:
+      - MSSQL_SA_PASSWORD=Pass@word
+      - ACCEPT_EULA=Y
+      - MSSQL_PID=Developer
+    ports:
+      - "5434:1433"
