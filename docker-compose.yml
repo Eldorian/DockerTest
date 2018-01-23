@@ -9,6 +9,8 @@ services:
 
   sql.data:
     image: microsoft/mssql-server-linux
+    volumes:
+      - db-data:/var/lib/sql/data
     container_name: hscarddb
     environment:
       - MSSQL_SA_PASSWORD=Pass@word
@@ -16,3 +18,6 @@ services:
       - MSSQL_PID=Developer
     ports:
       - "5434:1433"
+
+volumes:
+  db-data:

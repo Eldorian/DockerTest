@@ -22,7 +22,7 @@ namespace DockerTest.Repository
             {
                 var sql = @"SELECT Cards.Id, Cards.Name Name, Cards.ManaCost, Cards.Attack, Cards.Health, Rarity.Name Rarity, Sets.SetName SetName " +
                     "FROM Cards " +
-                    "LEFT JOIN Sets ON Cards.SetId = Sets.Id " +
+                    "LEFT JOIN Sets ON Cards.SetsId = Sets.Id " +
                     "LEFT JOIN Rarity ON Cards.RarityId = Rarity.Id " +
                     "ORDER BY Cards.Id";
 
