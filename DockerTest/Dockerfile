@@ -1,3 +1,10 @@
+FROM microsoft/mssql-server-linux
+COPY DockerTest/entrypoint.sh entrypoint.sh
+COPY DockerTest/SqlCmdStartup.sh SqlCmdStartup.sh
+COPY DockerTest/setup.sql setup.sql
+RUN chmod +x ./SqlCmdStartup.sh
+CMD /bin/bash ./entrypoint.sh
+
 FROM microsoft/aspnetcore:2.0 AS base
 WORKDIR /app
 EXPOSE 80

@@ -7,10 +7,10 @@ services:
       context: .
       dockerfile: DockerTest/Dockerfile
 
-  sql.data:
+  mssql:
     image: microsoft/mssql-server-linux
     volumes:
-      - db-data:/var/lib/sql/data
+      - mssql:/var/opt/mssql/data/
     container_name: hscarddb
     environment:
       - MSSQL_SA_PASSWORD=Pass@word
@@ -20,4 +20,4 @@ services:
       - "5434:1433"
 
 volumes:
-  db-data:
+   mssql:
