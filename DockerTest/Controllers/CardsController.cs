@@ -19,23 +19,35 @@ namespace DockerTest.Controllers
         {
             var cards = repo.GetAll();
 
-            return new ObjectResult(cards);
+            return Ok(cards);
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
+        {
+            var cards = repo.GetById(id);
+            return Ok(cards);
         }
 
         [HttpPost]
-        public IActionResult Add(CardsModel card)
+        public IActionResult Add([FromBody]CardsModel card)
         {
+            repo.Add(card);
             return Ok();
         }
 
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        public IActionResult Put(int id, [FromBody]CardsModel model)
         {
+            repo.Update(id, model);
+            return Ok();
         }
 
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            repo.Delete(id);
+            return Ok();
         }
     }
 }
