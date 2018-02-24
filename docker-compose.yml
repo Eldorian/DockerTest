@@ -6,18 +6,13 @@ services:
     build:
       context: .
       dockerfile: DockerTest/Dockerfile
+    depends_on:
+      - db
 
-  mssql:
+  db:
     image: microsoft/mssql-server-linux
-    volumes:
-      - mssql:/var/opt/mssql/data/
-    container_name: hscarddb
     environment:
       - MSSQL_SA_PASSWORD=Pass@word
       - ACCEPT_EULA=Y
-      - MSSQL_PID=Developer
     ports:
       - "5434:1433"
-
-volumes:
-   mssql:

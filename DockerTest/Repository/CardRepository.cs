@@ -20,11 +20,7 @@ namespace DockerTest.Repository
         {
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                var sql = @"SELECT Cards.Id, Cards.Name Name, Cards.ManaCost, Cards.Attack, Cards.Health, Rarity.Name Rarity, Sets.SetName SetName " +
-                    "FROM Cards " +
-                    "LEFT JOIN Sets ON Cards.SetsId = Sets.Id " +
-                    "LEFT JOIN Rarity ON Cards.RarityId = Rarity.Id " +
-                    "ORDER BY Cards.Id";
+                var sql = @"SELECT * FROM CARDS";
 
                 return db.Query<CardsModel>(sql);
             }
